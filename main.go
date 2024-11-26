@@ -7,6 +7,7 @@ import (
 	"go.mongodb.org/mongo-driver/v2/mongo"
 
 	"github.com/gin-gonic/gin"
+	middelware "github.com/swapnil/restaurant-management/middleware"
 	"github.com/swapnil/restaurant-management/routes"
 )
 
@@ -26,9 +27,21 @@ router.Use(gin.Logger())
 
 // Define the route for the index page and display the Go version
 routes.UserRoutes(router)
-middleware.AuthMiddleware(router)
-router.Use(middleware.AuthMiddleware())
-routes.foodRouter(router)
+middelware.AuthMiddleware(router)
+router.Use(middelware.AuthMiddleware())
+
+
+
+
+//defining routes
+routes.FoodRoutes(router)
+routes.InvoiceRoutes(router)
+routes.MenuRoutes(router)
+routes.OrderRoutes(router)
+routes.OrderItemRoutes(router)
+routes.TableRoutes(router)
+
+
 
 
 
