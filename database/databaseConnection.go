@@ -12,8 +12,8 @@ import (
 
 // OpenCollection is a function that returns a collection from the database
 
-// const dbName = "Restaurant-Management"
-// const collName = "board"
+const dbName = "Restaurant-Management"
+const collName = "board"
 
 // var collection *mongo.Collection
 // const connectionString = "mongodb+srv://Golang:golang@cluster0.2pndy.mongodb.net/"
@@ -61,4 +61,9 @@ func DbInstance() *mongo.Client{
 
 }
 
+var Client *mongo.Client = DbInstance()
+
+func OpenCollection(client *mongo.Client, dbName string, collName string) *mongo.Collection {
+	return client.Database(dbName).Collection(collName)
+}
 
