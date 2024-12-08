@@ -67,3 +67,16 @@ func OpenCollection(client *mongo.Client, dbName string, collName string) *mongo
 	return client.Database(dbName).Collection(collName)
 }
 
+// package database
+
+// import (
+//     "context"
+//     "go.mongodb.org/mongo-driver/mongo"
+//     "go.mongodb.org/mongo-driver/mongo/options"
+// )
+
+// OpenCollection connects to a MongoDB collection
+// func OpenCollection(client *mongo.Client, ctx context.Context, collectionName string) *mongo.Collection {
+//     db := client.Database("yourDatabaseName") // Replace with your DB name
+//     return db.Collection(collectionName)
+// }
